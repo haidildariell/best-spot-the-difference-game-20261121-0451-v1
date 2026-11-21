@@ -173,10 +173,10 @@ function drawGlobe(ctx, alt) {
 /** The star chart on the wall: constellations pinned in ink; one bright star is missing. */
 function drawStarChart(ctx, alt) {
   ctx.fillStyle = '#6d4c26';
-  ctx.fillRect(390, 24, 92, 88);
+  ctx.fillRect(382, 24, 78, 86);
   ctx.fillStyle = '#e9dfc6';
-  ctx.fillRect(395, 29, 82, 78);
-  const stars = [[408, 44], [428, 58], [446, 50], [462, 68], [452, 88], [424, 92], [406, 74]];
+  ctx.fillRect(387, 29, 68, 76);
+  const stars = [[398, 44], [414, 56], [428, 48], [444, 64], [436, 82], [412, 86], [396, 70]];
   ctx.strokeStyle = 'rgba(49,81,125,0.7)';
   ctx.lineWidth = 1.2;
   ctx.beginPath();
@@ -194,7 +194,7 @@ function drawStarChart(ctx, alt) {
   ctx.fillStyle = '#5d4a26';
   ctx.font = 'italic 9px Georgia, serif';
   ctx.textAlign = 'center';
-  ctx.fillText('Ursa Major', 436, 103);
+  ctx.fillText('Ursa Major', 421, 101);
 }
 
 /** Desk dressing: candles (two or three), a quill in its inkpot, an open atlas. */
@@ -302,7 +302,7 @@ function drawObservatoryLibrary(ctx, alt, t) {
   // Left bookcase with one leaning book on its bottom row.
   drawBookcase(ctx, 22, 62, 138, 71, (row) => (row === 3 ? { leanIndex: alt.has('book-leaning') ? -1 : 4 } : null));
   // Right bookcase: a golden spine on the second row turns plain brown on the copy.
-  drawBookcase(ctx, 448, 62, 138, 97, (row) => (row === 1 ? { index: 3, colour: alt.has('gold-book') ? '#5d4030' : '#e8c766' } : null));
+  drawBookcase(ctx, 470, 62, 122, 97, (row) => (row === 1 ? { index: 3, colour: alt.has('gold-book') ? '#5d4030' : '#e8c766' } : null));
   drawShelfToppers(ctx, alt, t);
   // Hanging oil lamp left of the dome: lit on the original, dark on the copy.
   ctx.strokeStyle = '#0f0d1a';
@@ -333,9 +333,9 @@ function drawObservatoryLibrary(ctx, alt, t) {
   if (!alt.has('rug-pattern')) {
     ctx.strokeStyle = '#c9a227';
     ctx.lineWidth = 1.6;
-    for (const rx of [216, 256, 304, 352, 392]) {
+    for (const [rx, ry] of [[104, 10], [72, 7], [40, 4.4]]) {
       ctx.beginPath();
-      ctx.ellipse(rx === 304 ? 304 : 304 + (rx - 304), 326, Math.abs(rx - 304) + 8, 5.4, 0, 0, Math.PI * 2);
+      ctx.ellipse(304, 326, rx, ry, 0, 0, Math.PI * 2);
       ctx.stroke();
     }
   }
@@ -350,12 +350,12 @@ export const ObservatoryLibrary = {
   differences: [
     { id: 'window-star', x: 330, y: 44, radius: 15 },
     { id: 'moon-crescent', x: 276, y: 52, radius: 17 },
-    { id: 'chart-star', x: 462, y: 68, radius: 14 },
+    { id: 'chart-star', x: 444, y: 64, radius: 14 },
     { id: 'saturn-ring', x: 88, y: 41, radius: 17 },
     { id: 'owl', x: 548, y: 42, radius: 17 },
     { id: 'dome-lamp', x: 196, y: 46, radius: 17 },
     { id: 'telescope-band', x: 302, y: 197, radius: 16 },
-    { id: 'gold-book', x: 512, y: 128, radius: 16 },
+    { id: 'gold-book', x: 524, y: 141, radius: 16 },
     { id: 'book-leaning', x: 88, y: 268, radius: 17 },
     { id: 'globe-colour', x: 452, y: 210, radius: 30 },
     { id: 'candle-count', x: 252, y: 240, radius: 15 },
